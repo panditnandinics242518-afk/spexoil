@@ -1,0 +1,129 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="pagehero">
+    <div class="container">
+        <span class="eyebrow">CONTACT US</span>
+
+        <h1>
+            We'd love to<br>
+            <em>hear from you.</em>
+        </h1>
+
+        <p>
+            Tell us what you need and the SPEXOIL team can follow up.
+        </p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container contactgrid">
+
+        <!-- Company contact information -->
+        <div>
+            <span class="eyebrow">GET IN TOUCH</span>
+
+            <h2>
+                Let's start a <em>conversation.</em>
+            </h2>
+
+            <p>
+                <b>Email</b><br>
+                <a href="mailto:{{ company.email }}">
+                    {{ company.email }}
+                </a>
+            </p>
+
+            <p>
+                <b>Phone</b><br>
+                <a href="tel:+918080226123">
+                    {{ company.phone }}
+                </a>
+            </p>
+
+            <p>
+                <b>Factory</b><br>
+                {{ company.factory }}
+            </p>
+
+            <p>
+                <b>Head Office</b><br>
+                {{ company.office }}
+            </p>
+
+            <a
+                class="textlink"
+                href="https://wa.me/{{ company.whatsapp }}"
+                target="_blank"
+                rel="noopener"
+            >
+                Message on WhatsApp ↗
+            </a>
+        </div>
+
+        <!-- Enquiry form -->
+        <form method="post" class="form">
+            <h3>Send an enquiry</h3>
+
+            <p>Fields marked * are required.</p>
+
+            <label>
+                Full name *
+                <input
+                    type="text"
+                    name="name"
+                    required
+                    maxlength="100"
+                >
+            </label>
+
+            <label>
+                Contact number *
+                <input
+                    type="tel"
+                    name="phone"
+                    required
+                    maxlength="30"
+                >
+            </label>
+
+            <label>
+                Email address *
+                <input
+                    type="email"
+                    name="email"
+                    required
+                    maxlength="150"
+                >
+            </label>
+
+            <label>
+                Subject
+                <input
+                    type="text"
+                    name="subject"
+                    maxlength="150"
+                >
+            </label>
+
+            <label>
+                Message *
+                <textarea
+                    name="message"
+                    required
+                    rows="5"
+                    maxlength="3000"
+                ></textarea>
+            </label>
+
+            <button class="btn" type="submit">
+                Submit Enquiry ↗
+            </button>
+        </form>
+
+    </div>
+</section>
+
+{% endblock %}

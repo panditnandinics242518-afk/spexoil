@@ -1,0 +1,79 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Values Page Hero Section -->
+<section class="pagehero">
+    <div class="container">
+
+        <span class="eyebrow">OUR VALUES</span>
+
+        <h1>
+            We listen.<br>
+            <em>We care. We deliver.</em>
+        </h1>
+
+        <p>
+            Our approach centres on quality, service and professional
+            customer relationships.
+        </p>
+
+    </div>
+</section>
+
+<!-- Our Core Values Section -->
+<section class="section">
+    <div class="container">
+
+        <span class="eyebrow">WHAT MATTERS TO US</span>
+
+        <h2>
+            Values that move <em>business forward.</em>
+        </h2>
+
+        <div class="values">
+
+            {% for title, desc in [
+                (
+                    'Quality control',
+                    'Focus on product quality and consistent service.'
+                ),
+                (
+                    'Customer-friendly',
+                    'Listen to customer requirements and communicate clearly.'
+                ),
+                (
+                    'Professional approach',
+                    'Build relationships through responsive, dependable support.'
+                ),
+                (
+                    'People and equipment',
+                    'Value committed staff and appropriate production equipment.'
+                ),
+                (
+                    'Service',
+                    'Understand customer needs and support enquiries.'
+                ),
+                (
+                    'Responsible mindset',
+                    'Keep environmental safety and responsible manufacturing in view.'
+                )
+            ] %}
+
+            <article>
+                <small>0{{ loop.index }}</small>
+
+                <h3>{{ title }}</h3>
+
+                <p>{{ desc }}</p>
+            </article>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

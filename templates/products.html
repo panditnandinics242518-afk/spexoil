@@ -1,0 +1,170 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Product Page Hero Section -->
+<section class="pagehero">
+    <div class="container">
+        <span class="eyebrow">OUR PRODUCT RANGE</span>
+
+        <h1>
+            Lubrication for<br>
+            <em>every application.</em>
+        </h1>
+
+        <p>
+            Choose a product category to filter the products below.
+            Contact us for current specifications, sizes and availability.
+        </p>
+    </div>
+</section>
+
+<!-- Product Categories and Filters -->
+<section class="section">
+    <div class="container">
+
+        <div class="product-toolbar">
+            <span class="eyebrow">FILTER BY CATEGORY</span>
+
+            <div
+                class="filter-buttons"
+                role="group"
+                aria-label="Filter products by category"
+            >
+                <button
+                    class="filter-btn active"
+                    data-filter="all"
+                    aria-pressed="true"
+                >
+                    All Products
+                </button>
+
+                {% for item in categories %}
+                <button
+                    class="filter-btn"
+                    data-filter="{{ item[1] }}"
+                    aria-pressed="false"
+                >
+                    {{ item[0] }}
+                </button>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Product Cards -->
+        <div class="cards product-cards">
+
+            {% for item in categories %}
+            <article
+                class="card product-card"
+                data-category="{{ item[1] }}"
+                id="{{ item[1] }}"
+            >
+                <img
+                    src="{{ item[3] }}"
+                    alt="{{ item[0] }}"
+                    loading="lazy"
+                >
+
+                <div>
+                    <small>0{{ loop.index }}</small>
+
+                    <h3>{{ item[0] }}</h3>
+
+                    <p>{{ item[2] }}</p>
+
+                    <!-- Automotive Oils -->
+                    {% if item[1] == 'automotive-oils' %}
+                    <ul class="mini-products">
+                        {% for p in auto_products[:6] %}
+                        <li>{{ p }}</li>
+                        {% endfor %}
+
+                        <li class="more-products">
+                            + more automotive products available
+                        </li>
+                    </ul>
+
+                    <!-- Industrial Oils -->
+                    {% elif item[1] == 'industrial-oils' %}
+                    <ul class="mini-products">
+                        <li>Hydraulic Oils</li>
+                        <li>Industrial lubricant ranges</li>
+                        <li>Contact us for available grades</li>
+                    </ul>
+
+                    <!-- Grease -->
+                    {% elif item[1] == 'grease' %}
+                    <ul class="mini-products">
+                        <li>Grease product range</li>
+                        <li>
+                            Contact us for product grades and packaging
+                        </li>
+                    </ul>
+
+                    <!-- Other Industrial Products -->
+                    {% elif item[1] == 'other-industrial-products' %}
+                    <ul class="mini-products">
+                        <li>Coolant</li>
+                        <li>Brake Fluid DOT 3 / DOT 4</li>
+                        <li>Fork Oil</li>
+                    </ul>
+
+                    <!-- Base Oil -->
+                    {% else %}
+                    <ul class="mini-products">
+                        <li>Base oil range</li>
+                        <li>
+                            Contact us for available grades and specifications
+                        </li>
+                    </ul>
+                    {% endif %}
+
+                    <a
+                        class="textlink"
+                        href="{{ url_for('contact') }}"
+                    >
+                        Enquire about this range ↗
+                    </a>
+                </div>
+            </article>
+            {% endfor %}
+
+        </div>
+
+        <p class="no-results" hidden>
+            No product categories match this filter.
+        </p>
+
+    </div>
+</section>
+
+<!-- Automotive Products List -->
+<section class="section soft">
+    <div class="container">
+
+        <span class="eyebrow">AUTOMOTIVE OILS</span>
+
+        <h2>
+            Automotive product <em>list.</em>
+        </h2>
+
+        <p>
+            These product names are listed on the company's public website.
+            Confirm specifications and current availability with SPEXOIL.
+        </p>
+
+        <div class="productlist">
+            {% for p in auto_products %}
+            <div>
+                <span>✓</span>
+                {{ p }}
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

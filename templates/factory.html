@@ -1,0 +1,96 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Factory Page Hero Section -->
+<section class="pagehero">
+    <div class="container">
+        <span class="eyebrow">OUR FACTORY</span>
+
+        <h1>
+            Made with care.<br>
+            <em>Focused on quality.</em>
+        </h1>
+
+        <p>
+            Our manufacturing location and company contact information.
+        </p>
+    </div>
+</section>
+
+<!-- Manufacturing Location Section -->
+<section class="section">
+    <div class="container split">
+
+        <img
+            class="featureimg"
+            src="https://www.spexoil.com/assets/images/factory-img2.jpg"
+            alt="Manufacturing equipment"
+        >
+
+        <div>
+            <span class="eyebrow">MANUFACTURING LOCATION</span>
+
+            <h2>
+                Our factory in <em>Kandla.</em>
+            </h2>
+
+            <p class="lead">
+                {{ company.factory }}
+            </p>
+
+            <p>
+                Contact the company in advance to confirm factory visit
+                availability and arrangements.
+            </p>
+
+            <a
+                class="btn"
+                target="_blank"
+                rel="noopener"
+                href="https://www.google.com/maps/search/?api=1&query=Plot+No+407+Sector+1+KSEZ+Kandla+Gandhidham+Kutch+Gujarat+370230"
+            >
+                View Location ↗
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- Head Office and Contact Section -->
+<section class="section soft">
+    <div class="container values">
+
+        <article>
+            <span class="eyebrow">HEAD OFFICE</span>
+
+            <h3>Mumbai, Maharashtra</h3>
+
+            <p>
+                {{ company.office }}
+            </p>
+        </article>
+
+        <article>
+            <span class="eyebrow">CONTACT</span>
+
+            <h3>Speak with our team</h3>
+
+            <p>
+                {{ company.phone }}<br>
+                {{ company.email }}
+            </p>
+
+            <a
+                class="textlink"
+                href="{{ url_for('contact') }}"
+            >
+                Contact us ↗
+            </a>
+        </article>
+
+    </div>
+</section>
+
+{% endblock %}

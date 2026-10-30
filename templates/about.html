@@ -1,0 +1,92 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="pagehero">
+    <div class="container">
+        <span class="eyebrow">ABOUT SPEXOIL</span>
+
+        <h1>
+            Our story.<br>
+            <em>Our commitment.</em>
+        </h1>
+
+        <p>
+            Focused on quality lubricant solutions and long-term customer relationships.
+        </p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container split">
+
+        <div>
+            <span class="eyebrow">WHO WE ARE</span>
+
+            <h2>
+                Silverstream Lubricants <em>Pvt. Ltd.</em>
+            </h2>
+
+            <p class="lead">
+                SILVERSTREAM LUBRICANTS PVT. LTD. is also known as SPEXOIL.
+            </p>
+
+            <p>
+                The company focuses on delivering high-quality lubricants
+                while prioritising customer satisfaction and environmental
+                safety. Its public website states that animal fat is not
+                used in its grease manufacturing process.
+            </p>
+
+            <p>
+                The company's investor page introduces Mr. Tanishq Dhoka
+                in a leadership role. Please confirm his current designation
+                and approved biography with the company before publication.
+            </p>
+
+            <a class="btn" href="{{ url_for('products') }}">
+                Explore Products ↗
+            </a>
+        </div>
+
+        <img
+            class="featureimg"
+            src="https://www.spexoil.com/assets/images/about-img-2.png"
+            alt="Industrial equipment"
+            loading="lazy"
+        >
+
+    </div>
+</section>
+
+<section class="section soft">
+    <div class="container">
+
+        <span class="eyebrow">OUR APPROACH</span>
+
+        <h2>
+            What guides <em>us.</em>
+        </h2>
+
+        <div class="values">
+
+            {% for title, desc in [
+                ('Quality', 'Keep product quality and consistency at the centre of every customer interaction.'),
+                ('Customer care', 'Listen to customer needs and provide clear communication.'),
+                ('Continuous improvement', 'Focus on performance, service and responsible business practices.')
+            ] %}
+
+            <article>
+                <small>0{{ loop.index }}</small>
+                <h3>{{ title }}</h3>
+                <p>{{ desc }}</p>
+            </article>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

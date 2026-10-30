@@ -1,0 +1,200 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ title }} | SPEXOIL</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <!-- Top contact bar -->
+    <div class="topbar">
+        <div class="container topinner">
+            <span>Oil &amp; Grease Manufacturer</span>
+
+            <span>
+                <a href="mailto:{{ company.email }}">{{ company.email }}</a>
+                |
+                <a href="tel:+918080226123">{{ company.phone }}</a>
+            </span>
+        </div>
+    </div>
+
+    <!-- Main navigation -->
+    <header>
+        <div class="container nav">
+
+            <a
+                class="brand"
+                href="{{ url_for('home') }}"
+                aria-label="SPEXOIL home"
+            >
+                <img
+                    src="{{ url_for('static', filename='images/spexoil-logo.png') }}"
+                    alt="SPEXOIL company logo"
+                    onerror="this.style.display='none'"
+                >
+
+                <span class="brand-mark">
+                    <b>SPEX<span>OIL</span></b>
+                    <small>SILVERSTREAM LUBRICANTS</small>
+                </span>
+            </a>
+
+            <button
+                class="toggle"
+                aria-label="Open navigation"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+
+            <nav>
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('about') }}">About</a>
+
+                <div class="nav-dropdown">
+                    <a href="{{ url_for('products') }}">
+                        Products <span class="chevron">⌄</span>
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <a href="{{ url_for('products') }}#automotive-oils">
+                            Automotive Oils
+                        </a>
+
+                        <a href="{{ url_for('products') }}#industrial-oils">
+                            Industrial Oils
+                        </a>
+
+                        <a href="{{ url_for('products') }}#grease">
+                            Grease
+                        </a>
+
+                        <a href="{{ url_for('products') }}#other-industrial-products">
+                            Other Industrial Products
+                        </a>
+
+                        <a href="{{ url_for('products') }}#base-oil">
+                            Base Oil
+                        </a>
+                    </div>
+                </div>
+
+                <a href="{{ url_for('factory') }}">Our Factory</a>
+                <a href="{{ url_for('investor') }}">Investor</a>
+                <a href="{{ url_for('certificates') }}">Certificates</a>
+                <a href="{{ url_for('values') }}">Values</a>
+
+                <a class="navbtn" href="{{ url_for('contact') }}">
+                    Contact Us ↗
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Flash messages -->
+    {% with msgs = get_flashed_messages(with_categories=true) %}
+        {% for kind, msg in msgs %}
+            <div class="container flash {{ kind }}">
+                {{ msg }}
+            </div>
+        {% endfor %}
+    {% endwith %}
+
+    <!-- Page content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footgrid">
+
+            <div>
+                <a class="footbrand" href="{{ url_for('home') }}">
+                    SPEX<span>OIL</span>
+                </a>
+
+                <p>
+                    {{ company.name }} is also known as SPEXOIL, focused
+                    on lubricant quality, customer satisfaction and
+                    environmental safety.
+                </p>
+            </div>
+
+            <div>
+                <h4>Explore</h4>
+
+                <a href="{{ url_for('about') }}">About Us</a>
+                <a href="{{ url_for('products') }}">Products</a>
+                <a href="{{ url_for('factory') }}">Our Factory</a>
+                <a href="{{ url_for('values') }}">Our Values</a>
+            </div>
+
+            <div>
+                <h4>Contact</h4>
+
+                <p>
+                    {{ company.email }}<br>
+                    {{ company.phone }}
+                </p>
+
+                <p>
+                    <b>Factory</b><br>
+                    {{ company.factory }}
+                </p>
+            </div>
+
+            <div>
+                <h4>Head Office</h4>
+
+                <p>{{ company.office }}</p>
+
+                <a href="https://wa.me/{{ company.whatsapp }}">
+                    WhatsApp ↗
+                </a>
+            </div>
+
+        </div>
+
+        <div class="container copyright">
+            © 2026 Silverstream Lubricants Pvt. Ltd. All rights reserved.
+
+            <span>We Listen. We Care. We Deliver!</span>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp button -->
+    <a
+        class="wa"
+        href="https://wa.me/{{ company.whatsapp }}"
+        target="_blank"
+        rel="noopener"
+        aria-label="WhatsApp"
+    >
+        ✆
+    </a>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<section class="pagehero">
+    <div class="container">
+        <span class="eyebrow">CERTIFICATES & QUALITY</span>
+        <h1>Our Quality <em>Standards</em></h1>
+        <p>Our certifications and commitment to quality.</p>
+    </div>
+</section>
+
+<section class="section certificates-section">
+    <div class="container">
+        <div class="certificates-grid">
+
+            <article class="certificate-card">
+                <h3>ISO 9001:2015</h3>
+                <a href="{{ url_for('static', filename='images/certificates/ISO-9001-2015.jpg') }}" target="_blank">
+                    <img src="{{ url_for('static', filename='images/certificates/ISO-9001-2015.jpg') }}"
+                         alt="ISO 9001:2015 certificate">
+                </a>
+            </article>
+
+            <article class="certificate-card">
+                <h3>ISO 45001:2018</h3>
+                <a href="{{ url_for('static', filename='images/certificates/iso-45001-2018.jpg') }}" target="_blank">
+                    <img src="{{ url_for('static', filename='images/certificates/iso-45001-2018.jpg') }}"
+                         alt="ISO 45001:2018 certificate">
+                </a>
+            </article>
+
+            <article class="certificate-card">
+                <h3>ISO 14001:2015</h3>
+                <a href="{{ url_for('static', filename='images/certificates/iso-14001-2015.jpg') }}" target="_blank">
+                    <img src="{{ url_for('static', filename='images/certificates/iso-14001-2015.jpg') }}"
+                         alt="ISO 14001:2015 certificate">
+                </a>
+            </article>
+
+            <article class="certificate-card">
+                <h3>Registration</h3>
+                <a href="{{ url_for('static', filename='images/certificates/silver-stream-lubricants.jpg') }}" target="_blank">
+                    <img src="{{ url_for('static', filename='images/certificates/silver-stream-lubricants.jpg') }}"
+                         alt="Company registration certificate">
+                </a>
+            </article>
+
+            <article class="certificate-card">
+                <h3>Udyam Registration</h3>
+                <a href="{{ url_for('static', filename='images/certificates/udyam-registration-certificate.jpg') }}" target="_blank">
+                    <img src="{{ url_for('static', filename='images/certificates/udyam-registration-certificate.jpg') }}"
+                         alt="Udyam registration certificate">
+                </a>
+            </article>
+
+            <article class="certificate-card">
+                <h3>Importer Exporter Code</h3>
+                <a href="{{ url_for('static', filename='images/certificates/importer-exporter-code.jpg') }}" target="_blank">
+                    <img src="{{ url_for('static', filename='images/certificates/importer-exporter-code.jpg') }}"
+                         alt="Importer Exporter Code certificate">
+                </a>
+            </article>
+
+        </div>
+    </div>
+</section>
+{% endblock %}

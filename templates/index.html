@@ -1,0 +1,169 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container herocontent">
+
+        <span class="eyebrow">OIL &amp; GREASE MANUFACTURER</span>
+
+        <h1>
+            Engineered<br>
+            For <em>Excellence.</em>
+        </h1>
+
+        <p>
+            Lubrication solutions focused on performance, reliability
+            and the demands of modern industry.
+        </p>
+
+        <div class="actions">
+            <a class="btn" href="{{ url_for('products') }}">
+                Explore Products ↗
+            </a>
+
+            <a class="btn outline" href="{{ url_for('about') }}">
+                Discover SPEXOIL
+            </a>
+        </div>
+
+        <small>QUALITY • PERFORMANCE • TRUST</small>
+
+    </div>
+</section>
+
+<!-- Commitment Section -->
+<section class="strip">
+    <div class="container stripgrid">
+
+        <div>
+            <span class="eyebrow">OUR COMMITMENT</span>
+            <h3>Quality at every stage.</h3>
+        </div>
+
+        <div>
+            <b>✓ Quality Focus</b>
+            <small>Quality-led solutions</small>
+        </div>
+
+        <div>
+            <b>◎ Customer First</b>
+            <small>We listen, we care</small>
+        </div>
+
+        <div>
+            <b>♻ Responsible Process</b>
+            <small>Environmental awareness</small>
+        </div>
+
+    </div>
+</section>
+
+<!-- About SPEXOIL Section -->
+<section class="section">
+    <div class="container split">
+
+        <img
+            class="featureimg"
+            src="https://www.spexoil.com/uploads/admin/product/industrial-specialty-grease_1725966116.png"
+            alt="Industrial manufacturing"
+            loading="lazy"
+        >
+
+        <div>
+            <span class="eyebrow">WHO WE ARE</span>
+
+            <h2>
+                Built on quality.<br>
+                <em>Driven by trust.</em>
+            </h2>
+
+            <p class="lead">
+                Silverstream Lubricants Pvt. Ltd., also known as SPEXOIL,
+                is dedicated to delivering lubricant solutions while
+                prioritising customer satisfaction and environmental safety.
+            </p>
+
+            <p>
+                The company website lists ISO 9001:2015, ISO 45001:2018
+                and ISO 14001:2015 certifications. Confirm current
+                certificates before publication.
+            </p>
+
+            <a class="textlink" href="{{ url_for('about') }}">
+                More about SPEXOIL ↗
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- Product Categories Section -->
+<section class="section soft">
+    <div class="container">
+
+        <div class="heading">
+            <div>
+                <span class="eyebrow">WHAT WE OFFER</span>
+
+                <h2>
+                    Solutions for every <em>application.</em>
+                </h2>
+            </div>
+
+            <a class="textlink" href="{{ url_for('products') }}">
+                View all products ↗
+            </a>
+        </div>
+
+        <div class="cards">
+            {% for item in categories %}
+
+            <a
+                class="card"
+                href="{{ url_for('products') }}#{{ item[1] }}"
+            >
+                <img
+                    src="{{ item[3] }}"
+                    alt="{{ item[0] }}"
+                    loading="lazy"
+                >
+
+                <div>
+                    <small>0{{ loop.index }}</small>
+
+                    <h3>{{ item[0] }}</h3>
+
+                    <p>{{ item[2] }}</p>
+
+                    <b>Learn more ↗</b>
+                </div>
+            </a>
+
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+<!-- SPEXOIL Promise Section -->
+<section class="statement">
+    <div class="container">
+
+        <span class="eyebrow">THE SPEXOIL PROMISE</span>
+
+        <h2>
+            We listen.<br>
+            <em>We care. We deliver.</em>
+        </h2>
+
+        <a class="btn white" href="{{ url_for('contact') }}">
+            Let's Talk ↗
+        </a>
+
+    </div>
+</section>
+
+{% endblock %}

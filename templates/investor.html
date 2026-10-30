@@ -1,0 +1,60 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="pagehero">
+    <div class="container">
+        <span class="eyebrow">INVESTOR</span>
+
+        <h1>
+            Leadership &amp;<br>
+            <em>company profile.</em>
+        </h1>
+
+        <p>Company information from the public SPEXOIL website.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container split">
+
+        <div>
+            <span class="eyebrow">LEADERSHIP</span>
+
+            <h2>Introducing <em>Mr. Tanishq Dhoka.</em></h2>
+
+            <p class="lead">
+                We are delighted to introduce Tanishq Dhoka, a seasoned
+                professional with a strong background in management studies
+                and global marketing. Tanishq recently transitioned into a
+                leadership role within the oil and grease industry, bringing
+                valuable knowledge and expertise.
+
+                <br><br>
+
+                Having completed his Bachelor's in Management Studies,
+                Tanishq pursued further education in the United Kingdom,
+                where he earned a Master's in Global Marketing. His academic
+                journey reflects his commitment to personal and professional
+                growth, along with a global perspective. His combination of
+                skills and passion for innovation promises to bring valuable
+                insights to the company's work.
+            </p>
+
+            <a class="btn" href="{{ url_for('contact') }}">
+                Contact the Company ↗
+            </a>
+        </div>
+
+        <img
+            class="featureimg"
+            src="https://www.spexoil.com/assets/images/tanishq-dhoka.jpg"
+            alt="Tanishq Dhoka"
+            loading="lazy"
+        >
+
+    </div>
+</section>
+
+{% endblock %}
